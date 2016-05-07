@@ -27,7 +27,7 @@ function FilterChapters(html){
 	var $ = cheerio.load(html);
 	var courseData = [];
 	//章
-	var chapters = $('.mod-chapters');
+	var chapters = $('.chapter');
 	chapters.each(function(item){
 		var chapter = $(this);
 		var chapterTitle = chapter.find('strong').text();
@@ -61,11 +61,11 @@ function FilterChapters(html){
 */
 function PrintCourseInfo(courseData){
 	courseData.forEach(function(item){
-		var courseTitle = item.chapterTitle;
+		var courseTitle = item.title;
 		console.log(courseTitle + '\n');
 
 		item.videos.forEach(function(item){
-			console.log('[小节编号]' + item.id + '   小节视频名称：' + item.videoTitle);
+			console.log('   [小节编号]' + item.id + '   小节视频名称：' + item.videoTitle);
 		});
 	})
 }
